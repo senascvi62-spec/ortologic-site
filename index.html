@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrtoLogic Soluções em TI — OrtoFactory</title>
+<meta name="description" content="OrtoLogic Soluções em TI — desenvolvimento do OrtoFactory, sistema MES de execução de manufatura para a indústria farmacêutica, com conformidade GMP e 21 CFR Part 11.">
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-alt:#0f1a2e;
+    --card:#111c33;
+    --border:#1f2c47;
+    --text:#e7ecf5;
+    --text-dim:#a6b1c6;
+    --accent:#3ba7ff;
+    --accent-2:#22c58f;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  header.site{
+    position:sticky;top:0;z-index:10;
+    background:rgba(11,18,32,.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;letter-spacing:.2px;}
+  .brand .mark{
+    width:30px;height:30px;border-radius:8px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:800;color:#06121f;
+  }
+  nav.top a{color:var(--text-dim);margin-left:24px;font-size:.92rem;}
+  nav.top a:hover{color:var(--text);text-decoration:none;}
+
+  .hero{padding:88px 0 64px;text-align:center;}
+  .hero .eyebrow{
+    display:inline-block;padding:6px 14px;border-radius:999px;
+    background:rgba(59,167,255,.12);border:1px solid rgba(59,167,255,.35);
+    color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2rem,4.5vw,3.1rem);margin:0 0 18px;font-weight:800;letter-spacing:-.5px;}
+  .hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{max-width:640px;margin:0 auto 34px;color:var(--text-dim);font-size:1.08rem;}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);text-decoration:none;}
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#06121f;box-shadow:0 8px 24px -8px rgba(59,167,255,.5);}
+  .btn-ghost{border:1px solid var(--border);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent);}
+
+  section{padding:64px 0;}
+  section.alt{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  h2.section-title{font-size:1.9rem;font-weight:800;margin:0 0 8px;letter-spacing:-.3px;}
+  p.section-sub{color:var(--text-dim);margin:0 0 40px;max-width:640px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;
+  }
+  .card .icon{
+    width:40px;height:40px;border-radius:10px;
+    background:rgba(34,197,143,.12);border:1px solid rgba(34,197,143,.3);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:18px;
+  }
+  .card h3{margin:0 0 8px;font-size:1.05rem;}
+  .card p{margin:0;color:var(--text-dim);font-size:.92rem;}
+
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .stat-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
+  .stat .n{font-size:1.6rem;font-weight:800;color:var(--accent);}
+  .stat .l{font-size:.8rem;color:var(--text-dim);margin-top:2px;}
+
+  .contact-card{
+    background:linear-gradient(135deg, rgba(59,167,255,.08), rgba(34,197,143,.06));
+    border:1px solid var(--border);border-radius:18px;padding:40px;text-align:center;
+  }
+  .contact-card h2{margin:0 0 6px;font-size:1.7rem;}
+  .contact-card p.role{color:var(--text-dim);margin:0 0 26px;}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .contact-links a.pill{
+    display:flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--border);border-radius:999px;
+    padding:11px 20px;color:var(--text);font-size:.92rem;font-weight:500;
+  }
+  .contact-links a.pill:hover{border-color:var(--accent);text-decoration:none;}
+
+  footer{padding:32px 0;text-align:center;color:var(--text-dim);font-size:.85rem;border-top:1px solid var(--border);}
+  footer .fmark{margin-bottom:6px;color:var(--text);font-weight:600;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand"><span class="mark">OL</span> OrtoLogic Soluções em TI</div>
+    <nav class="top">
+      <a href="#sobre">Empresa</a>
+      <a href="#ortofactory">OrtoFactory</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Portfólio técnico</span>
+    <h1>Software de execução de manufatura<br>com <span>conformidade GMP</span> de verdade</h1>
+    <p class="lead">A OrtoLogic Soluções em TI desenvolveu o <strong>OrtoFactory</strong>, um sistema MES (Manufacturing Execution System) completo para a indústria farmacêutica — da execução guiada em chão de fábrica até a trilha de auditoria eletrônica, pensado desde o primeiro dia para 21 CFR Part 11 e os princípios ALCOA+.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contato">Falar com o Diretor Comercial</a>
+      <a class="btn btn-ghost" href="#ortofactory">Conhecer o OrtoFactory</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap about-grid">
+    <div>
+      <h2 class="section-title">Sobre a OrtoLogic</h2>
+      <p class="section-sub">Consultoria e desenvolvimento de software especializada em sistemas de execução e conformidade regulatória para a indústria farmacêutica.</p>
+      <p style="color:var(--text-dim)">Projetamos e construímos o OrtoFactory do zero — arquitetura, banco de dados, backend, e cada tela da interface — como prova prática de que é possível entregar um MES robusto, auditável e orientado a objetos, sem depender de plataformas genéricas adaptadas às pressas para o chão de fábrica farmacêutico.</p>
+    </div>
+    <div class="stat-list">
+      <div class="stat"><div class="n">21 CFR</div><div class="l">Part 11 mapeado</div></div>
+      <div class="stat"><div class="n">ALCOA+</div><div class="l">Princípios de dados</div></div>
+      <div class="stat"><div class="n">11</div><div class="l">Idiomas suportados</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">Trilha de auditoria</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ortofactory" class="alt">
+  <div class="wrap">
+    <h2 class="section-title">O que é o OrtoFactory</h2>
+    <p class="section-sub">Um MES completo — da definição da receita até a assinatura eletrônica final — construído para operações reguladas.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">✓</div>
+        <h3>Execução guiada de receitas</h3>
+        <p>Passo a passo controlado por fase e operação, sem margem para pular etapas obrigatórias de produção.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔏</div>
+        <h3>Assinaturas eletrônicas</h3>
+        <p>Autenticação por login e senha em cada etapa crítica, com invalidação em cascata quando um dado assinado é alterado.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📜</div>
+        <h3>Trilha de auditoria imutável</h3>
+        <p>Toda alteração de dado é registrada — quem, quando, de onde, valor antes e depois — sem exceção e sem perda mesmo em registros excluídos.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Multi-idioma nativo</h3>
+        <p>Interface e documentos gerados em 11 línguas, com troca de idioma sem tocar em código.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔗</div>
+        <h3>Integração com SAP</h3>
+        <p>Importação de materiais, recursos e receitas, e movimentações de estoque sincronizadas com o ERP.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧾</div>
+        <h3>Dossiê e PDFs protegidos</h3>
+        <p>Certificados e relatórios exportados com proteção criptográfica, prontos para auditoria regulatória.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2>OrtoLogic Soluções em TI</h2>
+      <p class="role">Diretor Comercial</p>
+      <div class="contact-links">
+        <a class="pill" href="https://wa.me/5519996277275" target="_blank" rel="noopener">📱 +55 19 99627-7275 (WhatsApp)</a>
+        <a class="pill" href="mailto:sergio.vieira@ortologic.com.br">✉️ sergio.vieira@ortologic.com.br</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark">OrtoLogic Soluções em TI</div>
+    <div>www.ortologic.com.br — Demonstração do OrtoFactory</div>
+  </div>
+</footer>
+
+</body>
+</html>
