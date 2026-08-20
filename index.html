@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OrtoLogic Soluções em TI — OrtoFactory</title>
 <meta name="description" content="OrtoLogic Soluções em TI — desenvolvimento do OrtoFactory, sistema MES de execução de manufatura para a indústria farmacêutica, com conformidade GMP e 21 CFR Part 11.">
+<link rel="icon" type="image/png" href="logo.png">
 <style>
   :root{
     --bg:#0b1220;
@@ -39,11 +40,10 @@
   header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;letter-spacing:.2px;}
   .brand .mark{
-    width:30px;height:30px;border-radius:8px;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    display:flex;align-items:center;justify-content:center;
-    font-size:14px;font-weight:800;color:#06121f;
+    width:34px;height:34px;
+    display:block;
   }
+  .brand .mark img{width:100%;height:100%;object-fit:contain;display:block;}
   nav.top a{color:var(--text-dim);margin-left:24px;font-size:.92rem;}
   nav.top a:hover{color:var(--text);text-decoration:none;}
 
@@ -113,7 +113,7 @@
 
 <header class="site">
   <div class="wrap">
-    <div class="brand"><span class="mark">OL</span> OrtoLogic Soluções em TI</div>
+    <div class="brand"><span class="mark"><img src="logo.png" alt="OrtoLogic"></span> OrtoLogic Soluções em TI</div>
     <nav class="top">
       <a href="#sobre">Empresa</a>
       <a href="#ortofactory">OrtoFactory</a>
