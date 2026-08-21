@@ -94,6 +94,15 @@
   .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;}
   .stat .n{font-size:1.6rem;font-weight:800;color:var(--accent);}
   .stat .l{font-size:.8rem;color:var(--text-dim);margin-top:2px;}
+  .deck-link{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:16px;padding:13px 20px;border-radius:12px;
+    background:linear-gradient(135deg, rgba(59,167,255,.14), rgba(34,197,143,.1));
+    border:1px solid rgba(59,167,255,.35);
+    color:var(--text);font-size:.92rem;font-weight:600;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .deck-link:hover{border-color:var(--accent);transform:translateY(-1px);text-decoration:none;}
 
   .contact-card{
     background:linear-gradient(135deg, rgba(59,167,255,.08), rgba(34,197,143,.06));
@@ -151,6 +160,7 @@
       <div class="stat"><div class="n">11</div><div class="l">Idiomas suportados</div></div>
       <div class="stat"><div class="n">100%</div><div class="l">Trilha de auditoria</div></div>
     </div>
+    <a class="pill deck-link" href="OrtoFactory_Apresentacao_Tecnica.mp4" target="_blank" rel="noopener">🎬 Assistir Apresentação Técnica (vídeo narrado)</a>
   </div>
 </section>
 
